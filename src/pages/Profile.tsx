@@ -55,18 +55,18 @@ const Profile: React.FC = () => {
     <div className="container mx-auto px-4 py-8 max-w-6xl">
       {/* Header */}
       <div className="mb-8 animate-fade-in">
-        <div className="flex items-center space-x-4 mb-6">
-          <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
+          <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
             <User className="h-8 w-8 text-primary-foreground" />
           </div>
-          <div>
-            <h1 className="text-4xl font-bold text-foreground">{user.username}</h1>
-            <p className="text-xl text-muted-foreground">{user.email}</p>
+          <div className="min-w-0 flex-1">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground break-words">{user.username}</h1>
+            <p className="text-lg md:text-xl text-muted-foreground break-words">{user.email}</p>
           </div>
         </div>
 
         {/* Stats */}
-        <div className="grid md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <Card className="p-6 text-center bg-gradient-card shadow-card">
             <div className="flex justify-center mb-2">
               <BookOpen className="h-8 w-8 text-primary" />
@@ -121,7 +121,7 @@ const Profile: React.FC = () => {
             </div>
 
             {myQuizzes.length > 0 ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                 {myQuizzes.map((quiz, index) => (
                   <div key={quiz.id} className="animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
                     <QuizCard quiz={quiz} onTakeQuiz={handleTakeQuiz} />
@@ -159,22 +159,22 @@ const Profile: React.FC = () => {
                     };
 
                     return (
-                      <Card key={result.id} className="p-6 bg-gradient-card shadow-card animate-fade-in" style={{ animationDelay: `${index * 50}ms` }}>
-                        <div className="flex justify-between items-center">
-                          <div>
-                            <h3 className="text-lg font-semibold text-foreground mb-1">{result.quizTitle}</h3>
-                            <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                      <Card key={result.id} className="p-4 md:p-6 bg-gradient-card shadow-card animate-fade-in" style={{ animationDelay: `${index * 50}ms` }}>
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+                          <div className="min-w-0 flex-1">
+                            <h3 className="text-lg font-semibold text-foreground mb-2 break-words">{result.quizTitle}</h3>
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground">
                               <div className="flex items-center space-x-1">
-                                <Calendar className="h-4 w-4" />
+                                <Calendar className="h-4 w-4 flex-shrink-0" />
                                 <span>{new Date(result.createdAt).toLocaleDateString()}</span>
                               </div>
                               <div className="flex items-center space-x-1">
-                                <Target className="h-4 w-4" />
+                                <Target className="h-4 w-4 flex-shrink-0" />
                                 <span>{result.score}/{result.total} correct</span>
                               </div>
                             </div>
                           </div>
-                          <div className="text-right">
+                          <div className="text-center sm:text-right">
                             <div className={`text-2xl font-bold ${getScoreColor()}`}>
                               {percentage}%
                             </div>
@@ -182,7 +182,7 @@ const Profile: React.FC = () => {
                               onClick={() => navigate(`/quiz/${result.quizId}`)}
                               variant="outline"
                               size="sm"
-                              className="mt-2"
+                              className="mt-2 w-full sm:w-auto"
                             >
                               Retake
                             </Button>

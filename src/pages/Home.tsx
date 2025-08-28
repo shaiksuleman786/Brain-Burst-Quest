@@ -5,36 +5,35 @@ import { Card } from '@/components/ui/card';
 import { PlusCircle, BookOpen, Search, Trophy, Users, Zap } from 'lucide-react';
 import plantDecoration from '@/assets/plant-decoration.png';
 import fruitsDecoration from '@/assets/fruits-decoration.png';
-import brainBurstLogo from '@/assets/brain-burst-logo-new.svg';
 
 const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-10 left-10 w-24 h-24 opacity-80 animate-bounce-gentle">
+      <div className="hidden lg:block absolute top-10 left-10 w-16 h-16 lg:w-24 lg:h-24 opacity-80 animate-bounce-gentle">
         <img src={plantDecoration} alt="" className="w-full h-full object-contain" />
       </div>
-      <div className="absolute top-60 right-16 w-52 h-52 opacity-70 animate-bounce-gentle delay-1000">
+      <div className="hidden lg:block absolute top-40 right-16 w-30 h-40 lg:w-42 lg:h-52 opacity-70 animate-bounce-gentle delay-1000">
         <img src={fruitsDecoration} alt="" className="w-full h-full object-contain" />
       </div>
-      <div className="absolute bottom-20 left-20 w-20 h-20 bg-accent/20 rounded-full animate-bounce-gentle delay-500"></div>
-      <div className="absolute bottom-32 right-10 w-16 h-16 bg-primary/20 rounded-full animate-bounce-gentle delay-700"></div>
+      <div className="hidden md:block absolute bottom-20 left-20 w-12 h-12 lg:w-20 lg:h-20 bg-accent/20 rounded-full animate-bounce-gentle delay-500"></div>
+      <div className="hidden md:block absolute bottom-32 right-10 w-10 h-10 lg:w-16 lg:h-16 bg-primary/20 rounded-full animate-bounce-gentle delay-700"></div>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8 relative z-10">
         {/* Header */}
-        <div className="text-center py-12 animate-fade-in">
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+        <div className="text-center py-8 md:py-12 animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6">
             Brain Burst 
             <span className="bg-gradient-primary bg-clip-text text-transparent"> Quest</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 md:mb-8 px-4">
             Create engaging quizzes, challenge your knowledge, and compete with friends. 
             The most fun way to learn and test yourself!
           </p>
           
           {/* Quick Stats */}
-          <div className="flex justify-center gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-md sm:max-w-none mx-auto mb-6 md:mb-8">
             <div className="text-center">
               <div className="flex items-center justify-center w-12 h-12 bg-primary/20 rounded-full mb-2 mx-auto">
                 <Users className="h-6 w-6 text-primary" />
@@ -60,7 +59,7 @@ const Home: React.FC = () => {
         </div>
 
         {/* Action Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mb-12 md:mb-16 px-4 sm:px-0">
           <Card className="p-8 text-center bg-gradient-card hover:shadow-quiz transition-all duration-300 hover:scale-105 animate-fade-in delay-200">
             <div className="flex justify-center mb-6">
               <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center">
@@ -120,9 +119,9 @@ const Home: React.FC = () => {
         </div>
 
         {/* Features Section */}
-        <div className="text-center py-16 animate-fade-in delay-800">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Why Choose Brain Burst Quest?</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto mt-8">
+        <div className="text-center py-12 md:py-16 animate-fade-in delay-800 px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Why Choose Brain Burst Quest?</h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto mt-6 md:mt-8">
             <div className="text-center">
               <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Zap className="h-6 w-6 text-primary" />

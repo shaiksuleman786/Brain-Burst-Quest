@@ -98,20 +98,20 @@ const Browse: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8 animate-fade-in">
-        <h1 className="text-4xl font-bold text-foreground mb-4">Browse Quizzes</h1>
-        <p className="text-xl text-muted-foreground mb-6">
+        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Browse Quizzes</h1>
+        <p className="text-lg md:text-xl text-muted-foreground mb-6">
           Discover amazing quizzes created by our community
         </p>
         
         {/* Search Bar */}
-        <div className="relative max-w-md">
+        <div className="relative max-w-full sm:max-w-md">
           <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
           <Input
             type="text"
             placeholder="Search quizzes..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10"
+            className="pl-10 w-full"
           />
         </div>
       </div>
@@ -129,7 +129,7 @@ const Browse: React.FC = () => {
         </div>
 
         {filteredQuizzes.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {filteredQuizzes.map((quiz, index) => (
               <div key={quiz.id} className="animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
                 <QuizCard quiz={quiz} onTakeQuiz={handleTakeQuiz} />

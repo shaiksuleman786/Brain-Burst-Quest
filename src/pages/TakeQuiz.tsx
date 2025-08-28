@@ -140,8 +140,8 @@ const TakeQuiz: React.FC = () => {
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       {/* Header */}
       <div className="mb-8 animate-fade-in">
-        <div className="flex justify-between items-center mb-4">
-          <h1 className="text-3xl font-bold text-foreground">{quiz.title}</h1>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-4">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground">{quiz.title}</h1>
           <div className="flex items-center space-x-4 text-muted-foreground">
             <div className="flex items-center space-x-1">
               <Clock className="h-4 w-4" />
@@ -188,11 +188,12 @@ const TakeQuiz: React.FC = () => {
         </div>
 
         {/* Navigation */}
-        <div className="flex justify-between items-center pt-6 border-t border-border">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 pt-6 border-t border-border">
           <Button
             onClick={handlePrevious}
             variant="outline"
             disabled={attempt.currentQuestion === 0}
+            className="w-full sm:w-auto"
           >
             <ChevronLeft className="h-4 w-4 mr-2" />
             Previous
@@ -205,6 +206,7 @@ const TakeQuiz: React.FC = () => {
                 variant="success"
                 size="lg"
                 disabled={!hasAnswered}
+                className="w-full sm:w-auto"
               >
                 <Flag className="h-4 w-4 mr-2" />
                 Submit Quiz
@@ -214,6 +216,7 @@ const TakeQuiz: React.FC = () => {
                 onClick={handleNext}
                 variant="hero"
                 disabled={!hasAnswered}
+                className="w-full sm:w-auto"
               >
                 Next
                 <ChevronRight className="h-4 w-4 ml-2" />

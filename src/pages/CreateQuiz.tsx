@@ -156,8 +156,8 @@ const CreateQuiz: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <div className="mb-8 animate-fade-in">
-        <h1 className="text-4xl font-bold text-foreground mb-4">Create New Quiz</h1>
-        <p className="text-xl text-muted-foreground">
+        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Create New Quiz</h1>
+        <p className="text-lg md:text-xl text-muted-foreground">
           Build an engaging quiz and share it with the world
         </p>
       </div>
@@ -193,9 +193,9 @@ const CreateQuiz: React.FC = () => {
 
         {/* Questions */}
         <div className="space-y-6">
-          <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-semibold text-foreground">Questions</h2>
-            <Button type="button" onClick={addQuestion} variant="outline">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+            <h2 className="text-xl md:text-2xl font-semibold text-foreground">Questions</h2>
+            <Button type="button" onClick={addQuestion} variant="outline" size="sm">
               <Plus className="h-4 w-4 mr-2" />
               Add Question
             </Button>
@@ -245,19 +245,19 @@ const CreateQuiz: React.FC = () => {
 
                   <div className="space-y-3">
                     {question.options.map((option, oIndex) => (
-                      <div key={oIndex} className="flex items-center space-x-3">
+                      <div key={oIndex} className="flex items-start space-x-3">
                         <input
                           type="radio"
                           name={`correct-${qIndex}`}
                           checked={question.correctAnswerIndex === oIndex}
                           onChange={() => updateQuestion(qIndex, 'correctAnswerIndex', oIndex)}
-                          className="w-4 h-4 text-primary"
+                          className="w-4 h-4 text-primary mt-3 flex-shrink-0"
                         />
                         <Input
                           value={option}
                           onChange={(e) => updateOption(qIndex, oIndex, e.target.value)}
                           placeholder={`Option ${oIndex + 1}`}
-                          className="flex-1"
+                          className="flex-1 min-w-0"
                           required
                         />
                         {question.options.length > 2 && (
@@ -266,6 +266,7 @@ const CreateQuiz: React.FC = () => {
                             onClick={() => removeOption(qIndex, oIndex)}
                             variant="outline"
                             size="sm"
+                            className="flex-shrink-0"
                           >
                             <Minus className="h-4 w-4" />
                           </Button>
@@ -283,11 +284,11 @@ const CreateQuiz: React.FC = () => {
         </div>
 
         {/* Submit */}
-        <div className="flex gap-4 justify-end animate-fade-in delay-400">
-          <Button type="button" variant="outline" onClick={() => navigate('/browse')}>
+        <div className="flex flex-col sm:flex-row gap-4 justify-end animate-fade-in delay-400">
+          <Button type="button" variant="outline" onClick={() => navigate('/browse')} className="w-full sm:w-auto">
             Cancel
           </Button>
-          <Button type="submit" variant="hero" size="lg">
+          <Button type="submit" variant="hero" size="lg" className="w-full sm:w-auto">
             <Save className="h-4 w-4 mr-2" />
             Create Quiz
           </Button>
